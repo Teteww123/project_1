@@ -18,7 +18,7 @@ public class connect {
     public static Connection connection(){
         if(con==null){
             MysqlDataSource data = new MysqlDataSource();
-            data.setDatabaseName("zoo");
+            data.setDatabaseName("kebun_binatang");
             data.setUser("root");
             data.setPassword("");
             try{

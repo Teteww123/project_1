@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model.makanan;
+package Model.Customer;
 
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -13,16 +13,16 @@ import javax.swing.table.AbstractTableModel;
  * @author Malik
  */
 public class ModelTabelCustomer extends AbstractTableModel {
-    List<ModelCustomer> daftarmakanan;
-    String kolom[] = {"ID", "Menu makanan", "Harga"};
+    List<ModelCustomer> daftarpaket;
+    String kolom[] = {"ID", "Paket", "Harga"};
     
-    public ModelTabelCustomer(List<ModelCustomer> daftarmakanan) {
-        this.daftarmakanan = daftarmakanan;
+    public ModelTabelCustomer(List<ModelCustomer> daftarpaket) {
+        this.daftarpaket = daftarpaket;
     }
     
     @Override
     public int getRowCount() {
-        return daftarmakanan.size();
+        return daftarpaket.size();
     }
     
     @Override
@@ -34,11 +34,11 @@ public class ModelTabelCustomer extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return daftarmakanan.get(rowIndex).getId();
+                return daftarpaket.get(rowIndex).getId();
             case 1:
-                return daftarmakanan.get(rowIndex).getName();
+                return daftarpaket.get(rowIndex).getName();
             case 2:
-                return daftarmakanan.get(rowIndex).getPrice();
+                return daftarpaket.get(rowIndex).getPrice();
             default:
                 return null;
         }

@@ -4,7 +4,6 @@
  */
 package Model.Customer;
 
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,33 +15,28 @@ import connector.connect;
 public class DAOCustomer implements InterfaceDAOCustomer {
     
     
-    
-    
    
-    
 
-
-    @Override
     public List<ModelCustomer> getAll() {
-        List<ModelCustomer> daftarCustomer = null;
+        List<ModelCustomer> pl = null;
         try{
-            daftarCustomer = new ArrayList <>();
+            pl = new ArrayList <ModelCustomer>();
             Statement st = connect.connection().createStatement();
-            String select = "SELECT * FROM makanan;";
+            String select = "SELECT * FROM paket;";
             ResultSet rs = st.executeQuery(select);
             while (rs.next()){
-                ModelCustomer customer = new ModelCustomer ();
+                ModelCustomer paket = new ModelCustomer ();
           
-            customer.setId(rs.getInt("id"));
-            customer.setName(rs.getString("nama paket"));
-            customer.setPrice(rs.getDouble("harga paket"));
+            paket.setId(rs.getInt("id"));
+            paket.setName(rs.getString("name"));
+            paket.setPrice(rs.getDouble("price"));
            
-                daftarCustomer.add(customer);
+                pl.add(paket);
             }
         }catch(SQLException ex){
             Logger.getLogger(DAOCustomer.class.getName()).log(Level.SEVERE, null,ex);
         }
-        return daftarCustomer;
+        return pl;
     }
 
     @Override
