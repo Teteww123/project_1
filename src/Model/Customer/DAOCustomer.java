@@ -38,6 +38,8 @@ public class DAOCustomer implements InterfaceDAOCustomer {
         }
         return pl;
     }
+    
+    
 
     @Override
     public void insert(ModelCustomer mahasiswa) {
@@ -55,3 +57,5 @@ public class DAOCustomer implements InterfaceDAOCustomer {
     }
     
 }
+
+

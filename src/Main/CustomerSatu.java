@@ -4,21 +4,26 @@
  */
 package Main;
 
-import Main.CustomerDua;
+
 import controller.controllerCustomer;
+import controller.controllerIsiRiwayat;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 
 public class CustomerSatu extends javax.swing.JFrame {
 private int h;
-private int total;
 
-  
     controllerCustomer rc;
+    controllerIsiRiwayat ir;
     public CustomerSatu() {
         initComponents();
         setVisible(true);
         rc = new controllerCustomer(this);
+        ir = new controllerIsiRiwayat(this);
         rc.isitabel();
         
         
@@ -41,9 +46,9 @@ private int total;
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jumlahMa = new javax.swing.JTextField();
-        PilihMa = new javax.swing.JComboBox<>();
+        nama = new javax.swing.JTextField();
+        jumlah = new javax.swing.JTextField();
+        PilihPa = new javax.swing.JComboBox<>();
         totalHarga = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -81,22 +86,22 @@ private int total;
 
         jLabel6.setText("Total Harga :");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        nama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                namaActionPerformed(evt);
             }
         });
 
-        jumlahMa.addActionListener(new java.awt.event.ActionListener() {
+        jumlah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jumlahMaActionPerformed(evt);
+                jumlahActionPerformed(evt);
             }
         });
 
-        PilihMa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Paket", "Hanya Lihat", "Breakfast", "Elephant Expedition", "Paket Lengkap", "" }));
-        PilihMa.addActionListener(new java.awt.event.ActionListener() {
+        PilihPa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Paket", "Hanya Lihat", "Animal Feeding", "Elephant Expedition", "Paket Lengkap" }));
+        PilihPa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PilihMaActionPerformed(evt);
+                PilihPaActionPerformed(evt);
             }
         });
 
@@ -135,45 +140,41 @@ private int total;
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(444, 444, 444)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel14)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
+                                .addGap(53, 53, 53)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(22, 22, 22)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))
+                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(jLabel8)
                                             .addComponent(jLabel6))
-                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(totalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jumlahMa, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PilihMa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PilihPa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(harga1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jButton3)
-                                .addGap(190, 190, 190)
-                                .addComponent(jButton1))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(37, 37, 37)
+                        .addComponent(jButton3)
+                        .addGap(190, 190, 190)
+                        .addComponent(jButton1))
+                    .addComponent(jLabel1))
+                .addGap(96, 96, 96))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,11 +190,11 @@ private int total;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel2)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
-                                    .addComponent(PilihMa, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(PilihPa, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel8))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -202,7 +203,7 @@ private int total;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jumlahMa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
@@ -220,44 +221,51 @@ private int total;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_namaActionPerformed
 
-    private void PilihMaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PilihMaActionPerformed
-
-    if(Pilih1.getSelectedItem().equals("Breakfast")){
-       h=12000;
-    }else if(Pilih1.getSelectedItem().equals("Elephant Expidition")){
-        h=12000;
-    }else if(Pilih1.getSelectedItem().equals("Paket Lengkap")){
-        h=10000;
-    }//GEN-LAST:event_PilihMaActionPerformed
+    private void PilihPaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PilihPaActionPerformed
+        
+    if(PilihPa.getSelectedItem().equals("Hanya Lihat")){
+       h=30000;
+    }else if(PilihPa.getSelectedItem().equals("Animal Feeding")){
+        h=40000;
+    }else if(PilihPa.getSelectedItem().equals("Elephant Expidition")){
+        h=70000;
+    }else if(PilihPa.getSelectedItem().equals("Paket Lengkap")){
+        h=150000;
+    }//GEN-LAST:event_PilihPaActionPerformed
              harga1.setText(""+h);
     }
  
 
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dispose();
-        new CustomerDua();
+
+        ir.insert();
+        JOptionPane.showMessageDialog(this, "Data berhasil ditambah");
+        
+        this.setVisible(false);
+        new Riwayat().setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jumlahMaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumlahMaActionPerformed
-        double maHarga,beli,totalMa;
-        maHarga=Integer.parseInt(harga1.getText());
-        beli=Integer.parseInt(jumlahMa.getText());
-        totalMa=beli*maHarga;
+    private void jumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumlahActionPerformed
+          double harga,beli,ttotal;
+        harga=Integer.parseInt(harga1.getText());
+        beli=Integer.parseInt(jumlah.getText());
+        ttotal=beli*harga;
+        totalHarga.setText(String.valueOf(ttotal));
         
-    }//GEN-LAST:event_jumlahMaActionPerformed
+    }//GEN-LAST:event_jumlahActionPerformed
 
     private void totalHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalHargaActionPerformed
-       int jumlahtiket = total;
+
     }//GEN-LAST:event_totalHargaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        dispose();
-        new HalamanUtama();
+     
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -303,12 +311,60 @@ private int total;
     public void setTabelpaket(JTable Tabelpaket) {
         this.Tabelpaket = Tabelpaket;
     }
+
+    public JComboBox<String> getPilihPa() {
+        return PilihPa;
+    }
+
+    public void setPilihPa(JComboBox<String> PilihPa) {
+        this.PilihPa = PilihPa;
+    }
+
+    public JTextField getHarga1() {
+        return harga1;
+    }
+
+    public void setHarga1(JTextField harga1) {
+        this.harga1 = harga1;
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public JTextField getJumlah() {
+        return jumlah;
+    }
+
+    public void setJumlah(JTextField jumlah) {
+        this.jumlah = jumlah;
+    }
+
+    public JTextField getNama() {
+        return nama;
+    }
+
+    public void setNama(JTextField nama) {
+        this.nama = nama;
+    }
+
+    public JTextField getTotalHarga() {
+        return totalHarga;
+    }
+
+    public void setTotalHarga(JTextField totalHarga) {
+        this.totalHarga = totalHarga;
+    }
     
   
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> PilihMa;
+    private javax.swing.JComboBox<String> PilihPa;
     private javax.swing.JTable Tabelpaket;
     private javax.swing.JTextField harga1;
     private javax.swing.JButton jButton1;
@@ -322,8 +378,12 @@ private int total;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    public javax.swing.JTextField jumlahMa;
+    public javax.swing.JTextField jumlah;
+    private javax.swing.JTextField nama;
     private javax.swing.JTextField totalHarga;
     // End of variables declaration//GEN-END:variables
+
+    public Object getTabelRi() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

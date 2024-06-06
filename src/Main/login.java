@@ -96,7 +96,7 @@ public class login extends javax.swing.JFrame {
 
     private void BloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BloginActionPerformed
         try {
-            String sql = "SELECT * FROM pegawai where email='" + username.getText()+"'AND password='" + pass.getText()+"'";
+            String sql = "SELECT * FROM admin where email='" + username.getText()+"'AND password='" + pass.getText()+"'";
             java.sql.Connection con = connect.connection();
             java.sql.PreparedStatement pst = con.prepareStatement(sql);
             java.sql.ResultSet rs = pst.executeQuery(sql);
@@ -106,7 +106,7 @@ public class login extends javax.swing.JFrame {
                         && pass.getText().equals(rs.getString("password"))){
                     JOptionPane.showMessageDialog(null, "berhasil login");
                     this.setVisible(false);
-                    new menu().setVisible(true);
+                    new HalamanAdmin().setVisible(true);
                 }
             }else{
                 JOptionPane.showMessageDialog(null, "pass yang anda masukkan salah");
